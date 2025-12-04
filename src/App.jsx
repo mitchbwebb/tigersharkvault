@@ -50,6 +50,7 @@ const App = () => {
         <div className="max-w-7xl mx-auto px-4 md:px-8 flex justify-between items-center">
           
           <div className="flex items-center gap-2 z-50">
+            {/* Text Logo */}
             <h1 className="text-xl md:text-2xl font-black tracking-wider uppercase bg-gradient-to-r from-amber-200 via-amber-400 to-amber-600 bg-clip-text text-transparent filter drop-shadow-lg">
               TigerShark Vault
             </h1>
@@ -95,8 +96,7 @@ const App = () => {
 
         <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center">
           
-          {/* VIDEO INTRO */}
-          {/* Using your new logo image as the poster (loading image) */}
+          {/* VIDEO INTRO - Uses the underscores filename you requested */}
           <div className="relative w-full aspect-video max-w-3xl mb-8 md:mb-10 rounded-xl md:rounded-2xl overflow-hidden shadow-[0_0_30px_rgba(245,158,11,0.3)] border border-slate-800 bg-slate-900 group animate-fade-in-up">
             <div className="absolute inset-0 bg-gradient-to-tr from-amber-900/10 via-transparent to-amber-500/5 pointer-events-none z-10"></div>
             <video 
@@ -108,7 +108,7 @@ const App = () => {
               className="w-full h-full object-cover transform group-hover:scale-[1.02] transition-transform duration-1000"
               poster="./TigerShark%20Vault%20Logo%20and%20Brand%20Images%20-%203%20of%2013.jpg" 
             >
-              <source src="./TigerShark%20Vault%20Logo%20Vid.MP4" type="video/mp4" />
+              <source src="./TigerShark_Vault_Logo_Vid.MP4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
@@ -178,7 +178,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* Sneak Peek Section - Updated with specific filenames */}
+      {/* Sneak Peek Section - Updated with Original Filenames */}
       <section className="py-16 md:py-24 bg-slate-950 relative overflow-hidden" id="sneak-peek">
         <div className="max-w-7xl mx-auto px-4 text-center mb-10 md:mb-16">
           <h2 className="text-3xl md:text-5xl font-black text-white mb-4 tracking-tighter drop-shadow-xl">
