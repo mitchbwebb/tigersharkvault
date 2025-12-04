@@ -96,6 +96,7 @@ const App = () => {
         <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center">
           
           {/* VIDEO INTRO */}
+          {/* Using your new logo image as the poster (loading image) */}
           <div className="relative w-full aspect-video max-w-3xl mb-8 md:mb-10 rounded-xl md:rounded-2xl overflow-hidden shadow-[0_0_30px_rgba(245,158,11,0.3)] border border-slate-800 bg-slate-900 group animate-fade-in-up">
             <div className="absolute inset-0 bg-gradient-to-tr from-amber-900/10 via-transparent to-amber-500/5 pointer-events-none z-10"></div>
             <video 
@@ -105,10 +106,9 @@ const App = () => {
               playsInline
               preload="auto"
               className="w-full h-full object-cover transform group-hover:scale-[1.02] transition-transform duration-1000"
-              /* Note: Removed poster as that file was not in your screenshot */
+              poster="./TigerShark%20Vault%20Logo%20and%20Brand%20Images%20-%203%20of%2013.jpg" 
             >
-              {/* UPDATED VIDEO PATH */}
-              <source src="public/TigerShark_Vault_Logo_Vid.MP4" type="video/mp4" />
+              <source src="./TigerShark%20Vault%20Logo%20Vid.MP4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
@@ -178,7 +178,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* Sneak Peek Section - 3 Jewelry Items */}
+      {/* Sneak Peek Section - Updated with specific filenames */}
       <section className="py-16 md:py-24 bg-slate-950 relative overflow-hidden" id="sneak-peek">
         <div className="max-w-7xl mx-auto px-4 text-center mb-10 md:mb-16">
           <h2 className="text-3xl md:text-5xl font-black text-white mb-4 tracking-tighter drop-shadow-xl">
@@ -190,19 +190,18 @@ const App = () => {
         </div>
 
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* UPDATED IMAGE PATHS FOR ALL 3 ITEMS */}
           <SneakPeekCard 
-            imageSrc="public/tigersharkjewelryIMG_8987_Background Removed.png"
+            imageSrc="./tigersharkjewelryIMG_8987%20Background%20Removed.jpg"
             title="Signature Necklace"
             category="JEWELRY"
           />
           <SneakPeekCard 
-            imageSrc="public/tigersharkjewelryIMG_8991_4_Background Removed.png"
+            imageSrc="./tigersharkjewelryIMG_8991%204%20Background%20Removed.jpg"
             title="Vault Bracelet"
             category="JEWELRY"
           />
           <SneakPeekCard 
-            imageSrc="public/tigersharkjewelryIMG_8989_2_Background Removed.png"
+            imageSrc="./tigersharkjewelryIMG_8989%202%20Background%20Removed.png"
             title="Onyx Link"
             category="JEWELRY"
           />
@@ -267,7 +266,7 @@ const SneakPeekCard = ({ imageSrc, title, category }) => (
         alt={title}
         onError={(e) => {
           e.target.onerror = null; 
-          e.target.src = "https://via.placeholder.com/400x320?text=Image+Not+Found"; 
+          e.target.src = "/api/placeholder/400/320"; 
           console.error("Image failed to load:", imageSrc);
         }}
         className="max-h-full max-w-full object-contain filter drop-shadow-[0_0_15px_rgba(251,191,36,0.2)] group-hover:scale-105 transition-transform duration-500 relative z-0"
@@ -290,3 +289,5 @@ const SocialLink = ({ href, icon }) => (
 );
 
 export default App;
+
+
