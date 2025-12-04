@@ -192,17 +192,17 @@ const App = () => {
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* UPDATED IMAGE PATHS FOR ALL 3 ITEMS */}
           <SneakPeekCard 
-            imageSrc="public/tigersharkjewelryIMG_8987_Background Removed.png"
+            imageSrc="public/tigersharkjewelryIMG_8987.jpg"
             title="Signature Necklace"
             category="JEWELRY"
           />
           <SneakPeekCard 
-            imageSrc="public/tigersharkjewelryIMG_8991_4_Background Removed.png"
+            imageSrc="public/tigersharkjewelryIMG_8991_4.jpg"
             title="Vault Bracelet"
             category="JEWELRY"
           />
           <SneakPeekCard 
-            imageSrc="public/tigersharkjewelryIMG_8989_2_Background Removed.png"
+            imageSrc="public/tigersharkjewelryIMG_8989_2.jpg"
             title="Onyx Link"
             category="JEWELRY"
           />
