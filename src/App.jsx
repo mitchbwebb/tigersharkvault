@@ -19,8 +19,8 @@ function App() {
             muted 
             playsInline
           >
-            {/* Make sure the filename matches exactly what is in your public folder */}
-            <source src="/TigerShark_Vault_Logo_Vid.mp4" type="video/mp4" />
+            {/* Correct filename from your GitHub */}
+            <source src="/TigerShark_Vault_Logo_Vid.MP4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
@@ -46,7 +46,7 @@ function App() {
             </div>
           </div>
 
-          {/* IMAGE 2 - Update filename if you renamed it! */}
+          {/* IMAGE 2 - Corrected filename */}
           <div className="bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
             <img 
               src="/tigersharkjewelryIMG_8989_2.jpg" 
@@ -54,12 +54,12 @@ function App() {
               className="w-full h-64 object-cover"
             />
             <div className="p-4">
-              <h3 className="text-xl font-bold">Silver Chain Detail</h3>
+              <h3 className="text-xl font-bold">Coming Soon Collection</h3>
               <p className="text-gray-400">$34.99</p>
             </div>
           </div>
 
-          {/* IMAGE 3 */}
+          {/* IMAGE 3 - Corrected filename */}
           <div className="bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
             <img 
               src="/tigersharkjewelryIMG_8991_4.jpg" 
@@ -67,7 +67,7 @@ function App() {
               className="w-full h-64 object-cover"
             />
             <div className="p-4">
-              <h3 className="text-xl font-bold">Premium Pendant</h3>
+              <h3 className="text-xl font-bold">Premium Bracelet</h3>
               <p className="text-gray-400">$39.99</p>
             </div>
           </div>
