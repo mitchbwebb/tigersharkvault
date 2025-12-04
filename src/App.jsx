@@ -105,9 +105,10 @@ const App = () => {
               playsInline
               preload="auto"
               className="w-full h-full object-cover transform group-hover:scale-[1.02] transition-transform duration-1000"
-              poster="./IMG_7632.PNG" 
+              /* Note: Removed poster as that file was not in your screenshot */
             >
-              <source src="./TigerShark%20Vault%20Logo%20Vid.MP4" type="video/mp4" />
+              {/* UPDATED VIDEO PATH */}
+              <source src="public/TigerShark_Vault_Logo_Vid.MP4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
@@ -189,18 +190,19 @@ const App = () => {
         </div>
 
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* UPDATED IMAGE PATHS FOR ALL 3 ITEMS */}
           <SneakPeekCard 
-            imageSrc="./tigersharkjewelryIMG_8987%20Background%20Removed.jpg"
+            imageSrc="public/tigersharkjewelryIMG_8987_Background Removed.png"
             title="Signature Necklace"
             category="JEWELRY"
           />
           <SneakPeekCard 
-            imageSrc="./tigersharkjewelryIMG_8991%204%20Background%20Removed.jpg"
+            imageSrc="public/tigersharkjewelryIMG_8991_4_Background Removed.png"
             title="Vault Bracelet"
             category="JEWELRY"
           />
           <SneakPeekCard 
-            imageSrc="./tigersharkjewelryIMG_8989%202%20Background%20Removed.png"
+            imageSrc="public/tigersharkjewelryIMG_8989_2_Background Removed.png"
             title="Onyx Link"
             category="JEWELRY"
           />
@@ -265,7 +267,7 @@ const SneakPeekCard = ({ imageSrc, title, category }) => (
         alt={title}
         onError={(e) => {
           e.target.onerror = null; 
-          e.target.src = "/api/placeholder/400/320"; 
+          e.target.src = "https://via.placeholder.com/400x320?text=Image+Not+Found"; 
           console.error("Image failed to load:", imageSrc);
         }}
         className="max-h-full max-w-full object-contain filter drop-shadow-[0_0_15px_rgba(251,191,36,0.2)] group-hover:scale-105 transition-transform duration-500 relative z-0"
