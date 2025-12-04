@@ -27,12 +27,43 @@ const App = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleSubmit = (e) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (email) {
-      setSubmitted(true);
-      setTimeout(() => setSubmitted(false), 3000);
-      setEmail('');
+    if (!email || isSubmitting) return;
+
+    setIsSubmitting(true);
+    setSubmitMessage('');
+
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitted(true);
+        setSubmitMessage(data.message || 'Successfully joined!');
+        setEmail('');
+        setTimeout(() => {
+          setSubmitted(false);
+          setSubmitMessage('');
+        }, 3000);
+      } else {
+        setSubmitMessage(data.error || 'Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      console.error('Subscribe error:', error);
+      setSubmitMessage('Failed to connect. Please try again.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -108,7 +139,7 @@ const App = () => {
               /* Note: Removed poster as that file was not in your screenshot */
             >
               {/* UPDATED VIDEO PATH */}
-              <source src="public/TigerShark_Vault_Logo_Vid.MP4" type="video/mp4" />
+              <source src="/TigerShark_Vault_Logo_Vid.MP4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
@@ -135,15 +166,21 @@ const App = () => {
                   className="w-full bg-slate-900 border border-slate-700 text-slate-100 px-6 py-4 rounded-lg md:rounded-r-none md:rounded-l-lg focus:outline-none focus:ring-2 focus:ring-amber-500/50 placeholder-slate-500"
                   required
                 />
-                <button 
-                  type="submit" 
-                  className="bg-amber-500 hover:bg-amber-400 text-slate-900 font-bold px-8 py-4 rounded-lg md:rounded-l-none md:rounded-r-lg transition-colors flex items-center justify-center gap-2 whitespace-nowrap"
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="bg-amber-500 hover:bg-amber-400 text-slate-900 font-bold px-8 py-4 rounded-lg md:rounded-l-none md:rounded-r-lg transition-colors flex items-center justify-center gap-2 whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {submitted ? 'JOINED!' : 'JOIN'}
-                  {!submitted && <ArrowRight size={20} />}
+                  {isSubmitting ? 'JOINING...' : submitted ? 'JOINED!' : 'JOIN'}
+                  {!submitted && !isSubmitting && <ArrowRight size={20} />}
                 </button>
               </div>
             </form>
+            {submitMessage && (
+              <p className={`mt-4 text-sm ${submitted ? 'text-amber-400' : 'text-red-400'}`}>
+                {submitMessage}
+              </p>
+            )}
             <p className="mt-4 text-xs text-slate-500 uppercase tracking-widest">
               Be the first to know when we drop.
             </p>
@@ -191,18 +228,18 @@ const App = () => {
 
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* UPDATED IMAGE PATHS FOR ALL 3 ITEMS */}
-          <SneakPeekCard 
-            imageSrc="public/tigersharkjewelryIMG_8987.jpg"
+          <SneakPeekCard
+            imageSrc="/tigersharkjewelryIMG_8987.jpg"
             title="Signature Necklace"
             category="JEWELRY"
           />
-          <SneakPeekCard 
-            imageSrc="public/tigersharkjewelryIMG_8991_4.jpg"
+          <SneakPeekCard
+            imageSrc="/tigersharkjewelryIMG_8991_4.jpg"
             title="Vault Bracelet"
             category="JEWELRY"
           />
-          <SneakPeekCard 
-            imageSrc="public/tigersharkjewelryIMG_8989_2.jpg"
+          <SneakPeekCard
+            imageSrc="/tigersharkjewelryIMG_8989_2.jpg"
             title="Onyx Link"
             category="JEWELRY"
           />
